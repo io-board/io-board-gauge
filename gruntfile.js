@@ -171,7 +171,6 @@ module.exports = function (grunt) {
                 options: {
                     // appDir:'./',
                     baseUrl: outputPath,
-                    mainConfigFile: outputPath + "/src/main_common.js", // 'require-config.js','require-config.js',// 
                     paths: {
                         "oidc-client": "empty:",
                         "Msal": "empty:",
