@@ -1,0 +1,18 @@
+﻿{
+  "id": "io-board-gauge",
+  "version": "1.0.1",
+  "dependencies": {
+    "svg-gauge": "{{$.id}}/libs/svg-gauge/gauge.min"
+  },
+  "tiles": [
+    {
+      "settings": {
+        "name": "Gauge",
+        "assetTypeName": "",
+        "rowSpan": 2,
+        "colSpan": 2,
+        "configuration": "{{$.id}}/src/index"
+      }
+    }
+  ]
+}
