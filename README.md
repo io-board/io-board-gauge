@@ -12,7 +12,7 @@ Gauge Element for https://io-board.com (IO Dashboard)
 [
     {
         "id": "io-board-gauge",
-        "version": "1.0.0-pre2",
+        "version": "1.0.2-pre1",
         "npm": true,
         "upgradeInfo": [
             {
@@ -34,8 +34,7 @@ Gauge Element for https://io-board.com (IO Dashboard)
 ]
 ```
 5. It will reload and you can close the editor
-6. click new in left explorer and pick Gauge
-
+6. click new in left explorer and pick Gauge. You may skip the endpoint, and it will do some random data. If providing an endpoint, it will load it with fetch() at each interval specified, and using jsonPath you can query the path in the returned json to a value.
 7. If you like, go over the code here and read the readme here to get an idea about how easy it is to add your own parts.
 
 ## How it was made
@@ -260,7 +259,7 @@ To add the local module to IO Dashboard
 [
     {
         "id": "io-board-gauge",
-        "version": "1.0.1",
+        "version": "1.0.2-pre1",
         "upgradeInfo": [
             {
                 "version": "^1.0.0",

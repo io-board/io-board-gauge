@@ -1,8 +1,9 @@
 ﻿{
   "id": "io-board-gauge",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "dependencies": {
-    "svg-gauge": "{{$.id}}/libs/svg-gauge/gauge.min"
+    "svg-gauge": "{{$.id}}/libs/svg-gauge/gauge.min",
+    "jsonpath": "{{$.id}}/libs/jsonpath/jsonpath.min"
   },
   "tiles": [
     {

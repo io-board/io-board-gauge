@@ -27,6 +27,24 @@ const configuration = (style) => ({
                         "label": "Style",
                         "placeholder": "style",
                         "defaultValue": style
+                    },
+                    {
+                        "type": "input.text",
+                        "name": "endpoint",
+                        "label": "Endpoint",
+                        "placeholder": ""
+                    },
+                    {
+                        "type": "input.text",
+                        "name": "frequency",
+                        "label": "Update Frequency",
+                        "placeholder": ""
+                    },
+                     {
+                        "type": "input.text",
+                        "name": "jsonPath",
+                        "label": "JsonPath Query",
+                        "placeholder": ""
                     }
                 ]
             }
@@ -132,12 +150,27 @@ export class GaugeLayout extends JSXLayout<any>{
         element.classList.add(values.style);
         let style = styles.indexOf(values.style);
         this.gauge = gauge(element, options[style]);
-        setTimeout(() => {
-            setInterval(() => {
-                let value = (options[style].min || 0) +  Math.random() * (options[style].max || 100) - (options[style].min || 0)
-                this.gauge.setValueAnimated(value, 5);
-            }, 10000);
-        }, Math.random() * 5000);
+
+        if ("endpoint" in values) {
+            setInterval(async () => {
+                let data = await fetch(values.endpoint, { method: "GET" }).then(r => r.json());
+                let jp = await import("jsonpath");
+
+                let value = parseFloat(jp.query(data, values.jsonPath || "$[0].value"));
+                this.gauge.setValueAnimated(value, 1);
+
+
+            }, parseFloat(values.frequency || "5000"));
+
+
+        } else {
+            setTimeout(() => {
+                setInterval(() => {
+                    let value = (options[style].min || 0) + Math.random() * (options[style].max || 100) - (options[style].min || 0)
+                    this.gauge.setValueAnimated(value, 5);
+                }, 10000);
+            }, Math.random() * 5000);
+        }
        
         this.tile.loading = false;
         //console.log("B");
