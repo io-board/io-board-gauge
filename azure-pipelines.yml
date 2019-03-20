@@ -19,3 +19,7 @@ steps:
     npm install
     npm run build
   displayName: 'npm install and run grunt'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(System.DefaultWorkingDirectory)'
