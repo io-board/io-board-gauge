@@ -2,6 +2,41 @@
 
 Gauge Element for https://io-board.com (IO Dashboard)
 
+## Try it
+
+1. go to https://io-board.com 
+2. press sign in in top corner (or just go to https://io-board.com/dashboard/)
+3. Click "Configure" in the left explorer
+4. Copy paste the following into the editor and press save.
+```
+[
+    {
+        "id": "io-board-gauge",
+        "version": "1.0.0-pre2",
+        "npm": true,
+        "upgradeInfo": [
+            {
+                "version": "^1.0.0",
+                "delay": "0h",
+                "pre": true
+            }
+        ],
+        "packages": [
+            {
+                "name": "{{$.id}}/{{$.version}}",
+                "location": [
+                    "https://cdn.io-board.com/npm/{{$.id}}/{{$.version}}/dist"
+                ],
+                "main": "{{$.id}}/{{$.version}}/src/io-board.json"
+            }
+        ]
+    }
+]
+```
+5. It will reload and you can close the editor
+6. click new in left explorer and pick Gauge
+
+7. If you like, go over the code here and read the readme here to get an idea about how easy it is to add your own parts.
 
 ## How it was made
 
